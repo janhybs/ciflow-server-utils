@@ -1,0 +1,8 @@
+#!/bin/bash
+# Delete all containers and images
+
+# delete all containers
+docker-remove-containers
+
+# delete all images
+docker-remove-images

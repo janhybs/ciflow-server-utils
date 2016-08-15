@@ -1,0 +1,4 @@
+#!/bin/bash
+# Starts container from image
+
+docker run --rm -ti --privileged -p 8080:8080 hybs/docker_jenkins:latest bash

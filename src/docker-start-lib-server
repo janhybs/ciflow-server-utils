@@ -1,0 +1,4 @@
+#!/bin/bash
+# Starts container from image
+
+docker run --rm -ti --privileged -p 8081:8080 -v /var/www/html/static/packages/:/packages hybs/docker_jenkins:libs bash
