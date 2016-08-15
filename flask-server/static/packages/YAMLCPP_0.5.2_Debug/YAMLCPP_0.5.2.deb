@@ -1,0 +1,473 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../img/favicon.ico">
+
+    <title>Package list</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='cover.css') }}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style id="stylerStyle"></style>
+    <script id="stylerScript"></script>
+</head>
+
+<body>
+
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+                <div class="inner cover">
+                    <h1 style="font-size: 6em;">Package list {{s}}</h1>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>package</th>
+                                <th>build type</th>
+                                <th>date</th>
+                                <th>download</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for name_version, build_types in files.iteritems() %}
+                            <tr>
+                                <td rowspan="{{ len(build_types) + 1 }}">
+                                    {{name_version}}
+                                </td>
+                                <td colspan="3"></td>
+                            </tr>
+                            {% for build_type, info in build_types.iteritems() %}
+                            <tr>
+                                <td>
+                                    {{build_type}}
+                                </td>
+                                <td>
+                                    {{info.old_str}} old
+                                </td>
+                                <td class="download">
+                                    {% for package in info.files %} 
+                                        <a href="{{package.filename}}">
+                                            <span>{{package.ext}}</span>
+                                            <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                            <p class="subtle">{{package.big_str}}</p>
+                                        </a>
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            {% endfor %}
+                            <!-- <tr>
+                                <td>
+                                    <a href="PETSC_3.6.1_Release">PETSC_3.6.1_Release</a>
+                                    <span class="label label-primary">release</span>
+                                </td>
+                                <td>1 day old</td>
+                                <td class="download">
+                                    <a href="PETSC_3.6.1_Release/PETSC_3.6.1.tar.gz" title="download .tar.gz package">
+                                        <span>.tar.gz</span>
+                                        <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                        <p class="subtle">39.07 MB</p>
+                                    </a>
+                                    <a href="PETSC_3.6.1_Release/PETSC_3.6.1.zip" title="download .zip package">
+                                        <span>.zip</span>
+                                        <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                        <p class="subtle">49.71 MB</p>
+                                    </a>
+                                    <a href="PETSC_3.6.1_Release/PETSC_3.6.1.deb" title="download .deb package">
+                                        <span>.deb</span>
+                                        <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                        <p class="subtle">38.54 MB</p>
+                                    </a>
+                                    <a href="PETSC_3.6.1_Release/PETSC_3.6.1.md5sums" title="download .md5sums package">
+                                        <span>.md5sums</span>
+                                        <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                        <p class="subtle">1.41 MB</p>
+                                    </a>
+                                </td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ url_for('static', filename='js/jquery-3.1.0.slim.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+
+</body>
+<AutoScroll></AutoScroll>
+
+</html><html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../img/favicon.ico">
+
+    <title>Package list</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='cover.css') }}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style id="stylerStyle"></style>
+    <script id="stylerScript"></script>
+</head>
+
+<body>
+
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+                <div class="inner cover">
+                    <h1 style="font-size: 6em;">Package list {{s}}</h1>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>package</th>
+                                <th>build type</th>
+                                <th>date</th>
+                                <th>download</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for name_version, build_types in files.iteritems() %}
+                            <tr>
+                                <td rowspan="{{ len(build_types) + 1 }}">
+                                    {{name_version}}
+                                </td>
+                                <td colspan="3"></td>
+                            </tr>
+                            {% for build_type, info in build_types.iteritems() %}
+                            <tr>
+                                <td>
+                                    {{build_type}}
+                                </td>
+                                <td>
+                                    {{info.old_str}} old
+                                </td>
+                                <td class="download">
+                                    {% for package in info.files %} 
+                                        <a href="{{package.filename}}">
+                                            <span>{{package.ext}}</span>
+                                            <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                            <p class="subtle">{{package.big_str}}</p>
+                                        </a>
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            {% endfor %}
+                            <!-- <tr>
+                                <td>
+                                    <a href="PETSC_3.6.1_Release">PETSC_3.6.1_Release</a>
+                                    <span class="label label-primary">release</span>
+                                </td>
+                                <td>1 day old</td>
+                                <td class="download">
+                                    <a href="PETSC_3.6.1_Release/PETSC_3.6.1.tar.gz" title="download .tar.gz package">
+                                        <span>.tar.gz</span>
+                                        <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                        <p class="subtle">39.07 MB</p>
+                                    </a>
+                                    <a href="PETSC_3.6.1_Release/PETSC_3.6.1.zip" title="download .zip package">
+                                        <span>.zip</span>
+                                        <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                        <p class="subtle">49.71 MB</p>
+                                    </a>
+                                    <a href="PETSC_3.6.1_Release/PETSC_3.6.1.deb" title="download .deb package">
+                                        <span>.deb</span>
+                                        <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                        <p class="subtle">38.54 MB</p>
+                                    </a>
+                                    <a href="PETSC_3.6.1_Release/PETSC_3.6.1.md5sums" title="download .md5sums package">
+                                        <span>.md5sums</span>
+                                        <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                        <p class="subtle">1.41 MB</p>
+                                    </a>
+                                </td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ url_for('static', filename='js/jquery-3.1.0.slim.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+
+</body>
+<AutoScroll></AutoScroll>
+
+</html><html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../img/favicon.ico">
+
+    <title>Package list</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='cover.css') }}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style id="stylerStyle"></style>
+    <script id="stylerScript"></script>
+</head>
+
+<body>
+
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+                <div class="inner cover">
+                    <h1 style="font-size: 6em;">Package list {{s}}</h1>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>package</th>
+                                <th>build type</th>
+                                <th>date</th>
+                                <th>download</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for name_version, build_types in files.iteritems() %}
+                            <tr>
+                                <td rowspan="{{ len(build_types) + 1 }}">
+                                    {{name_version}}
+                                </td>
+                                <td colspan="3"></td>
+                            </tr>
+                            {% for build_type, info in build_types.iteritems() %}
+                            <tr>
+                                <td>
+                                    {{build_type}}
+                                </td>
+                                <td>
+                                    {{info.old_str}} old
+                                </td>
+                                <td class="download">
+                                    {% for package in info.files %} 
+                                        <a href="{{package.filename}}">
+                                            <span>{{package.ext}}</span>
+                                            <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                            <p class="subtle">{{package.big_str}}</p>
+                                        </a>
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            {% endfor %}
+                            <!-- <tr>
+                                <td>
+                                    <a href="PETSC_3.6.1_Release">PETSC_3.6.1_Release</a>
+                                    <span class="label label-primary">release</span>
+                                </td>
+                                <td>1 day old</td>
+                                <td class="download">
+                                    <a href="PETSC_3.6.1_Release/PETSC_3.6.1.tar.gz" title="download .tar.gz package">
+                                        <span>.tar.gz</span>
+                                        <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                        <p class="subtle">39.07 MB</p>
+                                    </a>
+                                    <a href="PETSC_3.6.1_Release/PETSC_3.6.1.zip" title="download .zip package">
+                                        <span>.zip</span>
+                                        <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                        <p class="subtle">49.71 MB</p>
+                                    </a>
+                                    <a href="PETSC_3.6.1_Release/PETSC_3.6.1.deb" title="download .deb package">
+                                        <span>.deb</span>
+                                        <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                        <p class="subtle">38.54 MB</p>
+                                    </a>
+                                    <a href="PETSC_3.6.1_Release/PETSC_3.6.1.md5sums" title="download .md5sums package">
+                                        <span>.md5sums</span>
+                                        <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                        <p class="subtle">1.41 MB</p>
+                                    </a>
+                                </td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ url_for('static', filename='js/jquery-3.1.0.slim.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+
+</body>
+<AutoScroll></AutoScroll>
+
+</html><html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../img/favicon.ico">
+
+    <title>Package list</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='cover.css') }}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style id="stylerStyle"></style>
+    <script id="stylerScript"></script>
+</head>
+
+<body>
+
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+                <div class="inner cover">
+                    <h1 style="font-size: 6em;">Package list {{s}}</h1>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>package</th>
+                                <th>build type</th>
+                                <th>date</th>
+                                <th>download</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for name_version, build_types in files.iteritems() %}
+                            <tr>
+                                <td rowspan="{{ len(build_types) + 1 }}">
+                                    {{name_version}}
+                                </td>
+                                <td colspan="3"></td>
+                            </tr>
+                            {% for build_type, info in build_types.iteritems() %}
+                            <tr>
+                                <td>
+                                    {{build_type}}
+                                </td>
+                                <td>
+                                    {{info.old_str}} old
+                                </td>
+                                <td class="download">
+                                    {% for package in info.files %} 
+                                        <a href="{{package.filename}}">
+                                            <span>{{package.ext}}</span>
+                                            <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                            <p class="subtle">{{package.big_str}}</p>
+                                        </a>
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            {% endfor %}
+                            <!-- <tr>
+                                <td>
+                                    <a href="PETSC_3.6.1_Release">PETSC_3.6.1_Release</a>
+                                    <span class="label label-primary">release</span>
+                                </td>
+                                <td>1 day old</td>
+                                <td class="download">
+                                    <a href="PETSC_3.6.1_Release/PETSC_3.6.1.tar.gz" title="download .tar.gz package">
+                                        <span>.tar.gz</span>
+                                        <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                        <p class="subtle">39.07 MB</p>
+                                    </a>
+                                    <a href="PETSC_3.6.1_Release/PETSC_3.6.1.zip" title="download .zip package">
+                                        <span>.zip</span>
+                                        <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                        <p class="subtle">49.71 MB</p>
+                                    </a>
+                                    <a href="PETSC_3.6.1_Release/PETSC_3.6.1.deb" title="download .deb package">
+                                        <span>.deb</span>
+                                        <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                        <p class="subtle">38.54 MB</p>
+                                    </a>
+                                    <a href="PETSC_3.6.1_Release/PETSC_3.6.1.md5sums" title="download .md5sums package">
+                                        <span>.md5sums</span>
+                                        <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                                        <p class="subtle">1.41 MB</p>
+                                    </a>
+                                </td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ url_for('static', filename='js/jquery-3.1.0.slim.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+
+</body>
+<AutoScroll></AutoScroll>
+
+</html>
