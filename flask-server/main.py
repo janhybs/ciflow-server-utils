@@ -160,7 +160,7 @@ def index():
 
 if __name__ == "__main__":
     os.chdir(os.path.dirname(__file__))
-    app.run(host='0.0.0.0', port=80, debug=False)
+    app.run(host='0.0.0.0', port=80, debug=False, threaded=True)
     
     # print json.dumps(docker.get_docker_tree(), indent=4)
     # 
