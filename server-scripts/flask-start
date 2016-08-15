@@ -1,0 +1,4 @@
+#!/bin/bash
+# Start flask server at /var/www/html/ location
+
+python /var/www/html/main.py
