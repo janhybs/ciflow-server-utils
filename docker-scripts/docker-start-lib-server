@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/bin/bashP
 # Starts container from image
 
-docker run --rm -ti --privileged -p 8081:8080 -v /var/www/html/static/packages/:/packages hybs/docker_jenkins:libs bash
+CID_FILE=/tmp/docker-lib.pid
+rm -rf $CID_FILE
+docker run --rm -ti --privileged -p 8081:8080 --cidfile $CID_FILE -v /var/www/html/static/packages/:/packages hybs/docker_jenkins:libs bash
