@@ -1,0 +1,9 @@
+#!/bin/bash
+# Start flask server at /var/www/html/ location
+
+flask-start &
+docker-start-flow-server
+docker-start-lib-server
+
+docker exec -d flow service jenkins start
+docker exec -d  lib service jenkins start
