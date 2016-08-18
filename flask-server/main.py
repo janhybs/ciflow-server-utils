@@ -123,7 +123,7 @@ def index():
             'port': '8081',
             'services': {
                 'jenkins': 'service jenkins status',
-                'docker': 'docker ps',
+                # 'docker': 'docker ps',
             }
         },
         'hybs/jenkins:flow': {
@@ -132,7 +132,7 @@ def index():
             'port': '8080',
             'services': {
                 'jenkins': 'service jenkins status',
-                'docker': 'docker ps',
+                # 'docker': 'docker ps',
             }
         },
     }
