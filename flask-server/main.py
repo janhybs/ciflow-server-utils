@@ -117,7 +117,7 @@ def packages():
 @app.route("/")
 def index():
     images = {
-        'hybs/docker_jenkins:libs': {
+        'hybs/jenkins:libs': {
             'class': 'jd',
             'name': 'Libs Jenkins',
             'port': '8081',
@@ -126,7 +126,7 @@ def index():
                 'docker': 'docker ps',
             }
         },
-        'hybs/docker_jenkins:latest': {
+        'hybs/jenkins:flow': {
             'class': 'jd',
             'name': 'Flow123d jenkins',
             'port': '8080',
