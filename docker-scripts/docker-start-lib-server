@@ -3,4 +3,8 @@
 
 CID_FILE=/tmp/docker-lib.pid
 rm -rf $CID_FILE
-docker run --rm -ti --privileged -p 8081:8080 --cidfile $CID_FILE --name lib "$@" hybs/jenkins:libs bash
+
+ARG=${1:---rm}
+shift
+echo docker run "$ARG" -ti --privileged -p 8081:8080 --cidfile $CID_FILE --name libs "$@" hybs/jenkins:libs bash
+docker run "$ARG" -ti --privileged -p 8081:8080 --cidfile $CID_FILE --name libs "$@" hybs/jenkins:libs bash

@@ -3,4 +3,8 @@
 
 CID_FILE=/tmp/docker-flow.pid
 rm -rf $CID_FILE
-docker run --rm -ti --privileged -p 8080:8080 --cidfile $CID_FILE --name flow "$@" hybs/jenkins:flow bash
+
+ARG=${1:---rm}
+shift
+echo docker run "$ARG" -ti --privileged -p 8080:8080 --cidfile $CID_FILE --name flow "$@" hybs/jenkins:flow bash
+docker run "$ARG" -ti --privileged -p 8080:8080 --cidfile $CID_FILE --name flow "$@" hybs/jenkins:flow bash
