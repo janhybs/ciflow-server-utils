@@ -6,5 +6,5 @@ rm -rf $CID_FILE
 
 ARG=${1:---rm}
 shift
-echo docker run "$ARG" -ti --privileged -p 8081:8080 --cidfile $CID_FILE --name libs "$@" hybs/jenkins:libs bash
-docker run "$ARG" -ti --privileged -p 8081:8080 --cidfile $CID_FILE --name libs "$@" hybs/jenkins:libs bash
+echo docker run "$ARG" -ti --privileged -p 8081:8081 --cidfile $CID_FILE --name libs "$@" hybs/jenkins:libs bash
+docker run "$ARG" -ti --privileged -p 8081:8081 --cidfile $CID_FILE --name libs "$@" hybs/jenkins:libs bash
