@@ -1,10 +1,17 @@
 #!/bin/bash
 # Starts container from image
 
-CID_FILE=/tmp/docker-lib.pid
-rm -rf $CID_FILE
+_NAME_="libs"
+CID_FILE="--cidfile /tmp/docker-${_NAME_}.pid"
+PORTS="-p 8081:8081"
+VOLUMES="-v /var/lib/jenkins/${_NAME_}:/var/lib/jenkins"
+NAME="--name ${_NAME_}"
+PRIVILEGED="" # --privileged
+IMAGE="hybs/jenkins:${_NAME_}"
 
+rm -rf $CID_FILE
 ARG=${1:---rm}
 shift
-echo docker run "$ARG" -ti --privileged -p 8081:8081 --cidfile $CID_FILE --name libs "$@" hybs/jenkins:libs bash
-docker run "$ARG" -ti --privileged -p 8081:8081 --cidfile $CID_FILE --name libs "$@" hybs/jenkins:libs bash
+
+echo docker run "$ARG" -ti $PRIVILEGED $PORTS $CID_FILE $VOLUMES $NAME "$@" $IMAGE bash
+docker run      "$ARG" -ti $PRIVILEGED $PORTS $CID_FILE $VOLUMES $NAME "$@" $IMAGE bash
