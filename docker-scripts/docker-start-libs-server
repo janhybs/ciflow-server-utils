@@ -2,14 +2,15 @@
 # Starts container from image
 
 _NAME_="libs"
-CID_FILE="--cidfile /tmp/docker-${_NAME_}.pid"
+_CID_FILE_="/tmp/docker-${_NAME_}.pid"
+CID_FILE="--cidfile ${_CID_FILE_}"
 PORTS="-p 8081:8081"
 VOLUMES="-v /var/lib/jenkins/${_NAME_}:/var/lib/jenkins"
 NAME="--name ${_NAME_}"
 PRIVILEGED="" # --privileged
 IMAGE="hybs/jenkins:${_NAME_}"
 
-rm -rf $CID_FILE
+rm -rf $_CID_FILE_
 ARG=${1:---rm}
 shift
 
