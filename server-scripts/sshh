@@ -1,0 +1,12 @@
+#!/bin/bash
+# Start flask server at /var/www/html/ location
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+CMD=`python $DIR/python-ssh.py "$@"`
+
+if [[ $? -ne 0 ]]; then
+    python $DIR/python-ssh.py "$@"
+else
+    echo $CMD
+    $CMD
+fi
